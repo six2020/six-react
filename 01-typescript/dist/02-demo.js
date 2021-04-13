@@ -1,0 +1,13 @@
+"use strict";
+var num = 123;
+var str;
+str = 'aaa';
+// str = 123;
+var bool = true;
+var a = null;
+var b = undefined;
+var sym = Symbol();
+var o;
+o = 1;
+o = 'a';
+o = true;
