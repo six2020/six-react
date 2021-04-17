@@ -39,6 +39,16 @@ console.log('lib1.version ====>>>>', lib1.version);
 lib1.doSometting()
 
 
+// ------------------
+
+// function hello(){}
+
+// hello.v = 123;
+
+// hello.to = function(){
+
+// }
+
 
 
 

@@ -1,12 +1,14 @@
 export {}
 
 // 可索引类型接口
-// interface StringArray{
-//     [index: number]: string
-// };
+interface StringArray{
+    [index: number]: string
+};
 
-// let strArr: StringArray = ["a", "b", "1"]
+// 字符串数组
+let strArr: StringArray = ["a", "b", "1", '123']
 
+// ----------------------
 
 // interface Names {
 //     [n: string]: string;
@@ -15,10 +17,20 @@ export {}
 
 // let obj: Names = {
 //     name: 'sieyes',
-//     job: 'web'
+//     job: 'web',
+//     aa: '456'
 // }
 
-// interface Names {
-//     [n: string]: string;
-//     [x: number]: string
-// }
+// -----------------------
+
+interface Names {
+    [n: string]: string;
+    [x: number]: string
+}
+
+let obj = {
+    name: 'sieyes',
+    0: 'hello'
+}
+
+obj[0]
