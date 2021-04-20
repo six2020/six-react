@@ -3,7 +3,7 @@ function fn(a: number, b: number){
     return a + b
 }
 
-// 函数声明
+// 函数表达式
 
 
 // let 函数类型
