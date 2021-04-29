@@ -16,10 +16,21 @@ import './App.css';
 // 类组件 CC
 
 class MyComponent extends React.Component{
+
+  static propTypes = {
+    name: PropTypes.string,
+    age: PropTypes.number
+  }
+
+  static defaultProps = {
+    name: 'sixsixsixsixx'
+  }
+
   render(){
     console.log(`this ====>>>>`, this);
 
     let {name, age} = this.props;
+    
     
     return (
       <>
@@ -30,6 +41,15 @@ class MyComponent extends React.Component{
     )
   }
 }
+
+// MyComponent.propTypes = {
+//   name: PropTypes.string,
+//   age: PropTypes.number
+// }
+
+// MyComponent.defaultProps = {
+//   name: 'sixsixsix'
+// }
 
 // ------------------------------------------
 
@@ -67,7 +87,7 @@ let divstyle = {
 
 
 let prop = {
-  name: 'sixx',
+  // name: 'sixxxxxxxxxxxx',
   age: 16,
   bb: 'b',
   cc: 'c'
