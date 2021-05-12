@@ -45,6 +45,11 @@ export default class Item extends Component {
         this.props.switchTodoDoneFromChild(this.props.id, e.target.checked)
     }
 
+    // 删除 todo
+    deleteHandle=(id)=>{
+        this.props.deleteTodoFromChild(id)
+    }
+
     render() {
 
         let {id, done, todo} = this.props
@@ -63,7 +68,7 @@ export default class Item extends Component {
 
                 <div className="form-check">
                     <input
-                        defaultChecked={done}
+                        checked={done}
                         onChange={this.changeHandle}
                         className="form-check-input"
                         type="checkbox"
@@ -72,7 +77,7 @@ export default class Item extends Component {
                         {todo}
                     </label>
 
-                    {this.state.flag ? <button type="button" className="btn btn-danger btn-sm" style={{ float: 'right' }}>删除</button> : ''}
+                    {this.state.flag ? <button type="button" onClick={()=>{this.deleteHandle(id)}} className="btn btn-danger btn-sm" style={{ float: 'right' }}>删除</button> : ''}
                 </div>
             </li>
         )

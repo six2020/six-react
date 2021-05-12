@@ -13,7 +13,8 @@ export default class TodoItem extends Component {
                         this.props.todolist.map(item=>{
                             return (<Item 
                                 key={item.id} {...item}
-                                switchTodoDoneFromChild={this.props.switchTodoDoneFromChild}  />)
+                                switchTodoDoneFromChild={this.props.switchTodoDoneFromChild}
+                                deleteTodoFromChild={this.props.deleteTodoFromChild}  />)
                         })
                     }
                 </ul>

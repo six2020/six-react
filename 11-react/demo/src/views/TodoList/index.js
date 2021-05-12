@@ -49,7 +49,53 @@ export default class TodoList extends Component {
         
     }
 
+    // 删除 todo 
+
+    deleteTodoFromChild = (id)=>{
+        // console.log(`符组件接收到的 id ====>>>>`, id);
+
+        let newTodoList = this.state.todolist.filter(item => {
+            return item.id !== id
+        })
+
+        this.setState({
+            todolist: newTodoList
+        })
+        
+    }
+
+    // 全选 和 全不选
+    checkdeAllFromChild = (done)=>{
+        // console.log(`父组件接收到的 done ====>>>>`, done);
+
+        let newTodoList = this.state.todolist.map(item => ({...item, done}))
+        
+        this.setState({
+            todolist: newTodoList
+        })
+    }
+
+    // 删除已完成的 todo
+    deleteDoneTodoFromChild = ()=>{
+        let newTodoList = this.state.todolist.filter(item=>{
+            return item.done === false
+        })
+
+        this.setState({
+            todolist: newTodoList
+        })
+    }
+
     render() {
+
+        let doneCount = this.state.todolist.reduce((per, cur)=>{
+            if(cur.done === true){
+                return per + 1
+            }else{
+                return per + 0
+            }
+        }, 0)
+
         return (
             <div>
                 {/* add Todo */}
@@ -58,10 +104,15 @@ export default class TodoList extends Component {
                 {/* todo 列表 */}
                 <TodoItem 
                     todolist={this.state.todolist}
-                    switchTodoDoneFromChild={this.switchTodoDoneFromChild} />
+                    switchTodoDoneFromChild={this.switchTodoDoneFromChild}
+                    deleteTodoFromChild={this.deleteTodoFromChild} />
 
                 {/* list info */}
-                <TodoInfo />
+                <TodoInfo
+                    doneCount={doneCount}
+                    total={this.state.todolist.length}
+                    checkdeAllFromChild={this.checkdeAllFromChild}
+                    deleteDoneTodoFromChild={this.deleteDoneTodoFromChild} />
 
             </div>
         )
