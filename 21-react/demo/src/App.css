@@ -1,0 +1,12 @@
+.App {
+  text-align: center;
+}
+
+ul{
+  display: flow-root;
+  list-style: none;
+}
+
+ul li {
+  float: left
+}
